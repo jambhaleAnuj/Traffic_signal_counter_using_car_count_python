@@ -15,6 +15,7 @@ jobs:
         with:
           globs: |
             **/*.md
+          config: .markdownlint.jsonc
   yaml-lint:
     runs-on: ubuntu-latest
     steps:

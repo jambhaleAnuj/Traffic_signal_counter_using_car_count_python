@@ -1,0 +1,10 @@
+{
+  // Markdownlint configuration
+  // Relax line length for badges/links and ignore code blocks/headings/tables
+  "MD013": {
+    "line_length": 240,
+    "code_blocks": false,
+    "tables": false,
+    "headings": false
+  }
+}
