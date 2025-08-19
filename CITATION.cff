@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "Adaptive Traffic Signal Management (ATSM): Vehicle Counting with YOLOv8 + SORT"
+authors:
+  - family-names: Jambhale
+    given-names: Anuj
+version: 0.1.0
+date-released: 2025-08-19
+url: https://github.com/jambhaleAnuj/Traffic_signal_counter_using_car_count_python
+license: GPL-3.0-only
+message: "If you use this software or build upon it, please cite this repository. The accompanying manuscript is licensed under CC BY-SA 4.0."

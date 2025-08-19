@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.env
+
+# VS Code
+.vscode/
+
+# Data & weights (keep directory, ignore large files)
+Media/*.avi
+Media/*.mov
+Media/*.mkv
+Media/*.mp4
+Media/*.MP4
+Media/*.json
+Weights/*.pt
+
+# OS
+.DS_Store
+Thumbs.db

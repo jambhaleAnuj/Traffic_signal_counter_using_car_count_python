@@ -1,0 +1,25 @@
+# Configuration for ATSM vehicle counting demo
+
+video_path: "Media/cars2.mp4"
+mask_path: "Media/mask.png"
+weights_path: "Weights/yolov8n.pt"
+
+# Vehicle classes to count (must match YOLO class names)
+classes_to_count: ["car", "truck", "motorbike", "bus"]
+confidence_threshold: 0.3
+
+# Counting line (x1, y1, x2, y2)
+count_line: [199, 363, 1208, 377]
+
+# SORT tracker parameters
+tracker:
+  max_age: 20
+  min_hits: 3
+  iou_threshold: 0.3
+
+# Signal timing logic
+signal:
+  car_count_threshold: 10
+  normal_red_timer: 60
+  reduced_red_timer: 30
+  cooldown_duration: 10
