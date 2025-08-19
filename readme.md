@@ -84,7 +84,6 @@ Below are sample outputs from the demo run:
 
 ![Preview 4](Output/Screenshot%20(4).png)
 
-
 ## Advanced usage
 
 Use the YAML config or override via CLI:
