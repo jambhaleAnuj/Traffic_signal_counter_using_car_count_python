@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jambhaleAnuj.github.io/Traffic_signal_counter_using_car_count_python/sitemap.xml

@@ -7,4 +7,7 @@ version: 0.1.0
 date-released: 2025-08-19
 url: https://github.com/jambhaleAnuj/Traffic_signal_counter_using_car_count_python
 license: GPL-3.0-only
-message: "If you use this software or build upon it, please cite this repository. The accompanying manuscript is licensed under CC BY-SA 4.0."
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.16903140
+message: "If you use this software or build upon it, please cite this repository. DOI: https://doi.org/10.5281/zenodo.16903140. The accompanying manuscript is licensed under CC BY-SA 4.0."

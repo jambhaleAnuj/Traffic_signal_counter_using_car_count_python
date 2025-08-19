@@ -7,6 +7,7 @@
 [![Stars](https://img.shields.io/github/stars/jambhaleAnuj/Traffic_signal_counter_using_car_count_python?style=social)](https://github.com/jambhaleAnuj/Traffic_signal_counter_using_car_count_python)
 [![Issues](https://img.shields.io/github/issues/jambhaleAnuj/Traffic_signal_counter_using_car_count_python)](https://github.com/jambhaleAnuj/Traffic_signal_counter_using_car_count_python/issues)
 [![Last Commit](https://img.shields.io/github/last-commit/jambhaleAnuj/Traffic_signal_counter_using_car_count_python)](https://github.com/jambhaleAnuj/Traffic_signal_counter_using_car_count_python/commits/main)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16903140.svg)](https://doi.org/10.5281/zenodo.16903140)
 
 ![Demo](Media/demo.gif)
 
@@ -83,7 +84,6 @@ Below are sample outputs from the demo run:
 
 ![Preview 4](Output/Screenshot%20(4).png)
 
-> Tip: You can set a Social preview image in GitHub Settings → General → Social preview to improve share cards.
 
 ## Advanced usage
 
@@ -116,13 +116,6 @@ python car_counter.py --video Media/cars3.mp4 --weights Weights/yolov8l.pt --lin
 
 - Ultralytics YOLOv8: <https://github.com/ultralytics/ultralytics>
 - SORT by Alex Bewley: <https://github.com/abewley/sort>
-
-## Boost discoverability
-
-- Add repository Topics: `yolo`, `yolov8`, `computer-vision`, `traffic`, `vehicle-counting`, `sort-tracker`, `opencv`, `smart-traffic`.
-- Set a concise Description and Website in the repo About panel (link your portfolio).
-- Upload a social preview banner in Settings → General → Social preview.
-- Create a v0.1.0 GitHub Release; consider archiving with Zenodo to mint a DOI for academic citations.
 
 ---
 

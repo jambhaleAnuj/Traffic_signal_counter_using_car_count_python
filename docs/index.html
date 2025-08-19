@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Adaptive Traffic Signal Management (YOLOv8 + SORT) — Vehicle Counting,
+      Line Crossing, Adaptive Timing
+    </title>
+    <meta
+      name="description"
+      content="Adaptive Traffic Signal Management using YOLOv8 and SORT for real-time vehicle counting, line crossing detection, and congestion-aware red-light timing."
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://jambhaleAnuj.github.io/Traffic_signal_counter_using_car_count_python/"
+    />
+    <meta
+      name="keywords"
+      content="YOLOv8, Ultralytics, SORT, object detection, multi-object tracking, vehicle counting, traffic signal, adaptive traffic, computer vision, OpenCV, Python"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:site_name"
+      content="Adaptive Traffic Signal Management (ATSM)"
+    />
+    <meta
+      property="og:title"
+      content="ATSM — YOLOv8 + SORT Vehicle Counting and Adaptive Timing"
+    />
+    <meta
+      property="og:description"
+      content="Real-time vehicle detection and tracking with YOLOv8 + SORT to optimize traffic signals via line crossing counts and adaptive timers."
+    />
+    <meta
+      property="og:url"
+      content="https://jambhaleAnuj.github.io/Traffic_signal_counter_using_car_count_python/"
+    />
+    <meta
+      property="og:image"
+      content="https://jambhaleAnuj.github.io/Traffic_signal_counter_using_car_count_python/Media/demo.gif"
+    />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="ATSM — YOLOv8 + SORT Vehicle Counting"
+    />
+    <meta
+      name="twitter:description"
+      content="Vehicle counting and adaptive signal timing using YOLOv8 + SORT (Python/OpenCV)."
+    />
+    <meta
+      name="twitter:image"
+      content="https://jambhaleAnuj.github.io/Traffic_signal_counter_using_car_count_python/Media/demo.gif"
+    />
+
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="icon" href="https://fav.farm/🚦" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "Adaptive Traffic Signal Management (ATSM)",
+        "description": "YOLOv8 + SORT vehicle counting, line crossing, and congestion-aware timing.",
+        "codeRepository": "https://github.com/jambhaleAnuj/Traffic_signal_counter_using_car_count_python",
+        "programmingLanguage": "Python",
+        "runtimePlatform": "Windows, Linux, macOS",
+        "license": "https://www.gnu.org/licenses/gpl-3.0",
+        "keywords": [
+          "YOLOv8",
+          "Ultralytics",
+          "SORT",
+          "object detection",
+          "MOT",
+          "OpenCV",
+          "vehicle counting",
+          "traffic signal",
+          "adaptive traffic"
+        ],
+        "author": {
+          "@type": "Person",
+          "name": "Anuj Jambhale",
+          "url": "https://www.jambhaleanuj.tech/"
+        },
+        "url": "https://jambhaleAnuj.github.io/Traffic_signal_counter_using_car_count_python/",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "10.5281/zenodo.16903140",
+          "url": "https://doi.org/10.5281/zenodo.16903140"
+        }
+      }
+    </script>
+    <script>
+      // Theme persistence
+      (() => {
+        const saved = localStorage.getItem("theme");
+        if (saved) document.documentElement.setAttribute("data-theme", saved);
+      })();
+      function toggleTheme() {
+        const root = document.documentElement;
+        const cur = root.getAttribute("data-theme") || "dark";
+        const next = cur === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+        const btn = document.getElementById("theme-toggle");
+        if (btn) btn.textContent = next === "dark" ? "☾ Dark" : "☀ Light";
+      }
+      // Copy buttons for code blocks
+      function addCopyButtons() {
+        document.querySelectorAll("pre").forEach((pre) => {
+          const btn = document.createElement("button");
+          btn.className = "copy-btn";
+          btn.type = "button";
+          btn.title = "Copy to clipboard";
+          btn.textContent = "Copy";
+          btn.addEventListener("click", async () => {
+            const text = pre.innerText;
+            try {
+              await navigator.clipboard.writeText(text);
+              const old = btn.textContent;
+              btn.textContent = "Copied!";
+              setTimeout(() => (btn.textContent = old), 1200);
+            } catch (e) {
+              console.error("Copy failed", e);
+            }
+          });
+          pre.appendChild(btn);
+        });
+      }
+      document.addEventListener("DOMContentLoaded", addCopyButtons);
+    </script>
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div>
+          <h1 class="title">Adaptive Traffic Signal Management (ATSM)</h1>
+          <div class="subtitle">
+            YOLOv8 + SORT — Vehicle counting, line crossing, and adaptive timing
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="../readme.md">README</a>
+          <a
+            href="https://github.com/jambhaleAnuj/Traffic_signal_counter_using_car_count_python"
+            >GitHub</a
+          >
+          <a href="../Unoffical%20Research%20Paper.pdf">Paper</a>
+          <a href="https://www.jambhaleanuj.tech/">Website</a>
+          <button id="theme-toggle" onclick="toggleTheme()">☾ Dark</button>
+        </nav>
+      </header>
+
+      <section class="card badges">
+        <img
+          alt="GPLv3"
+          src="https://img.shields.io/badge/License-GPLv3-blue.svg"
+        />
+        <img
+          alt="CC BY-SA 4.0"
+          src="https://img.shields.io/badge/Paper-CC%20BY--SA%204.0-lightgrey"
+        />
+        <img
+          alt="Python"
+          src="https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white"
+        />
+        <img
+          alt="YOLOv8"
+          src="https://img.shields.io/badge/YOLOv8-Ultralytics-23A5F7"
+        />
+      </section>
+
+      <section class="card section">
+        <h2>Demo</h2>
+        <img
+          class="responsive"
+          src="../Media/demo.gif"
+          alt="ATSM demo — YOLOv8 vehicle counting and adaptive timing"
+        />
+      </section>
+
+      <section class="card grid section">
+        <div>
+          <h2>Quickstart</h2>
+          <pre><code>py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python car_counter.py</code></pre>
+          <a
+            class="button"
+            href="https://github.com/jambhaleAnuj/Traffic_signal_counter_using_car_count_python/archive/refs/heads/main.zip"
+            >Download ZIP</a
+          >
+        </div>
+        <div>
+          <h2>How it works</h2>
+          <ul class="tight">
+            <li>YOLOv8 detects vehicles in the ROI.</li>
+            <li>SORT (Kalman + IOU) maintains stable IDs across frames.</li>
+            <li>Line crossing increments a unique vehicle count.</li>
+            <li>Red timer reduces when congestion exceeds a threshold.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card section">
+        <h2>Configuration and CLI</h2>
+        <p>Use <code>config.yaml</code> for defaults and override via CLI:</p>
+        <pre><code># Default
+python car_counter.py
+
+# Custom config
+python car_counter.py --config my_config.yaml
+
+# Override key params
+python car_counter.py --video Media/cars3.mp4 --weights Weights/yolov8l.pt \
+  --line 150 360 1200 360 --threshold 15 --normal 70 --reduced 40 --cooldown 15 --conf 0.4</code></pre>
+      </section>
+
+      <section class="card section">
+        <h2>Detailed explanation</h2>
+        <h3>Detection</h3>
+        <p>
+          Ultralytics YOLOv8 runs on the masked region-of-interest to reduce
+          false positives and compute cost.
+        </p>
+        <ul class="tight">
+          <li>
+            Weights: <code>Weights/yolov8n.pt</code> (fast) or
+            <code>yolov8l.pt</code> (more accurate).
+          </li>
+          <li>
+            Classes counted: <code>car</code>, <code>truck</code>,
+            <code>motorbike</code>, <code>bus</code>.
+          </li>
+          <li>Confidence threshold configurable via <code>--conf</code>.</li>
+        </ul>
+        <h3>Tracking (SORT)</h3>
+        <p>
+          Kalman filter predicts positions; IOU-based matching assigns
+          detections to tracks with unique IDs.
+        </p>
+        <ul class="tight">
+          <li>
+            Key params: <code>max_age</code>, <code>min_hits</code>,
+            <code>iou_threshold</code>.
+          </li>
+          <li>Stable IDs prevent double-counting across adjacent frames.</li>
+        </ul>
+        <h3>Counting</h3>
+        <p>
+          When a tracked center crosses the configured line window, the ID is
+          marked counted once per cycle.
+        </p>
+        <ul class="tight">
+          <li>Line coordinates: <code>count_line = [x1, y1, x2, y2]</code>.</li>
+          <li>Change via config or <code>--line x1 y1 x2 y2</code>.</li>
+        </ul>
+        <h3>Adaptive timing</h3>
+        <p>
+          If the unique count exceeds the threshold, the red timer reduces for
+          the current cycle with a simple cooldown to prevent oscillation.
+        </p>
+        <ul class="tight">
+          <li>Threshold: <code>car_count_threshold</code>.</li>
+          <li>
+            Timers: <code>normal_red_timer</code>,
+            <code>reduced_red_timer</code>.
+          </li>
+          <li>Cooldown: <code>cooldown_duration</code>.</li>
+        </ul>
+      </section>
+
+      <section class="card section">
+        <h2>Tips & troubleshooting</h2>
+        <ul>
+          <li>
+            Use <code>yolov8n.pt</code> for CPU or low-spec GPUs; upgrade to
+            <code>yolov8l.pt</code> for accuracy checks.
+          </li>
+          <li>
+            Adjust <code>--conf</code> if you see false positives/negatives.
+          </li>
+          <li>Tune SORT params for your traffic scene density/speed.</li>
+          <li>
+            Replace <code>Media/mask.png</code> for a new intersection layout.
+          </li>
+        </ul>
+      </section>
+
+      <section class="card section">
+        <h2>Cite this work</h2>
+        <p>Please cite the repository if you use or build upon it.</p>
+        <p>
+          <strong>DOI:</strong>
+          <a href="https://doi.org/10.5281/zenodo.16903140"
+            >10.5281/zenodo.16903140</a
+          >
+        </p>
+        <pre><code>@software{jambhale_atsm_2025,
+  author  = {Jambhale, Anuj},
+  title   = {Adaptive Traffic Signal Management (ATSM): Vehicle Counting with YOLOv8 + SORT},
+  year    = {2025},
+  url     = {https://github.com/jambhaleAnuj/Traffic_signal_counter_using_car_count_python},
+  doi     = {10.5281/zenodo.16903140}
+}</code></pre>
+      </section>
+
+      <footer class="footer">
+        <small>
+          © 2025 <a href="https://www.jambhaleanuj.tech/">Anuj Jambhale</a> ·
+          Code: GPL-3.0 · Paper: CC BY-SA 4.0 ·
+          <a href="../CC_LICENCE">Paper License</a>
+        </small>
+      </footer>
+    </main>
+  </body>
+</html>
